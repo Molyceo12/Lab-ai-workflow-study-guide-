@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Guide: Agile and Scrum</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 20mm 18mm 20mm 18mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      font-size: 10.5pt;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Page Breaks */
+    h2 {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    /* Prevent orphans and widows */
+    h1, h2, h3, h4 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
+
+    .section-block, .quick-check-box, .answer-key-card, .summary-box {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Title Page */
+    .title-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 170px;
+      padding-bottom: 170px;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .title-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #2563eb;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .title-page h1 {
+      font-size: 32pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .decorative-bar {
+      width: 80px;
+      height: 4px;
+      background: #2563eb;
+      margin: 16px auto 24px auto;
+      border-radius: 2px;
+    }
+
+    .title-page .subtitle {
+      font-size: 13.5pt;
+      color: #475569;
+      max-width: 650px;
+      margin: 0 auto 32px auto;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .title-page .metadata {
+      margin-top: 20px;
+    }
+
+    .title-page .date-badge {
+      display: inline-block;
+      font-size: 10.5pt;
+      color: #334155;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Table of Contents */
+    .toc-container {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 24px 32px;
+      margin-top: 20px;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px dashed #cbd5e1;
+      font-size: 11pt;
+    }
+
+    .toc-item:last-child {
+      border-bottom: none;
+    }
+
+    .toc-link {
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 20pt;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 2.5px solid #2563eb;
+      padding-bottom: 8px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 5px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-size: 11.5pt;
+      font-weight: 700;
+      color: #334155;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    /* Block styles */
+    .block-label {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 6px 0 12px 0;
+      color: #334155;
+    }
+
+    ul {
+      margin: 6px 0 14px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    li strong {
+      color: #0f172a;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border-left: 3.5px solid #3b82f6;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin: 10px 0 16px 0;
+    }
+
+    .example-box p {
+      margin: 0;
+      color: #334155;
+    }
+
+    .quick-check-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 24px 0 18px 0;
+    }
+
+    .quick-check-box h4 {
+      color: #15803d;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 11.5pt;
+    }
+
+    .quick-check-box ul {
+      margin: 6px 0 0 20px;
+    }
+
+    .quick-check-box li {
+      color: #166534;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .summary-box {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-left: 4px solid #9333ea;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .summary-box ul {
+      margin: 0 0 0 22px;
+    }
+
+    .summary-box li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      color: #3b0764;
+    }
+
+    .summary-box strong {
+      color: #581c87;
+    }
+
+    .answer-key-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .answer-key-card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #1e3a8a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 6px;
+    }
+
+    .qa-item {
+      margin-bottom: 14px;
+    }
+
+    .qa-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .qa-question {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .qa-answer {
+      color: #475569;
+      padding-left: 12px;
+      border-left: 2px solid #cbd5e1;
+      line-height: 1.55;
+    }
+    </style>
+</head>
+<body>
+  <div class="title-page">
+    <div class="title-badge">STUDY GUIDE &amp; REFERENCE MANUAL</div>
+    <h1>Study Guide: Agile and Scrum</h1>
+    <div class="decorative-bar"></div>
+    <p class="subtitle">A Comprehensive Practical Guide to Agile Principles, Scrum Frameworks, and Team Collaboration</p>
+    <div class="metadata">
+      <span class="date-badge">Publication Date: October 17, 2026</span>
+    </div>
+  </div>
+  <section class="toc-section" id="table-of-contents">
+    <h2>Table of Contents</h2>
+    <div class="toc-container">
+      <ul class="toc-list">
+        <li class="toc-item"><a class="toc-link" href="#1-introduction-to-agile">1. Introduction to Agile</a></li>
+        <li class="toc-item"><a class="toc-link" href="#2-introduction-to-scrum">2. Introduction to Scrum</a></li>
+        <li class="toc-item"><a class="toc-link" href="#3-scrum-roles-and-responsibilities">3. Scrum Roles and Responsibilities</a></li>
+        <li class="toc-item"><a class="toc-link" href="#4-scrum-artifacts-and-commitments">4. Scrum Artifacts and Commitments</a></li>
+        <li class="toc-item"><a class="toc-link" href="#5-scrum-events-and-meetings">5. Scrum Events and Meetings</a></li>
+        <li class="toc-item"><a class="toc-link" href="#6-applying-agile-and-scrum-in-practice">6. Applying Agile and Scrum in Practice</a></li>
+        <li class="toc-item"><a class="toc-link" href="#7-agile-and-scrum-tools-and-metrics">7. Agile and Scrum Tools and Metrics</a></li>
+        <li class="toc-item"><a class="toc-link" href="#8-advanced-scrum-practices-and-challenges">8. Advanced Scrum Practices and Challenges</a></li>
+        <li class="toc-item"><a class="toc-link" href="#summary">Summary</a></li>
+        <li class="toc-item"><a class="toc-link" href="#answer-key">Answer Key</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="1-introduction-to-agile">
+    <h2>1. Introduction to Agile</h2>
+    <h3 id="1-1-what-is-agile">1.1 What Is Agile?</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Agile is an approach to developing products through short cycles of work, frequent feedback, and ongoing adjustment. Instead of trying to predict every detail before work begins, a team delivers useful pieces of a product, learns from their results, and decides what to do next.</p>
+      <p>Agile is a set of values and principles rather than one required process. It encourages close collaboration among customers, stakeholders, and the people doing the work. This helps teams respond to changing needs while still focusing on quality and valuable outcomes.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Iteration:</strong> A short period of work used to produce and review results.</li>
+        <li><strong>Feedback:</strong> Information from users or stakeholders that helps guide future work.</li>
+        <li><strong>Adaptation:</strong> Changing a plan or approach in response to what has been learned.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team building an online bookstore first releases search and book details. After shoppers try them, the team uses their feedback to improve search before investing in less-used features.</p>
+      </div>
+    </div>
+    <h3 id="1-2-traditional-vs-agile-development">1.2 Traditional vs. Agile Development</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Traditional, plan-driven development often organizes work into sequential phases such as requirements, design, implementation, and testing. In a Waterfall project, a team may complete and approve much of one phase before moving to the next. This can work well when requirements are stable and extensive upfront coordination is important.</p>
+      <p>Agile development divides work into smaller batches and revisits plans as the team learns. It can reveal problems earlier and deliver useful functionality sooner, but it requires regular collaboration and does not remove the need for planning or documentation. The best approach depends on uncertainty, constraints, and the needs of the product.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Waterfall:</strong> A sequential approach in which work typically moves through planned phases.</li>
+        <li><strong>Incremental delivery:</strong> Releasing a product in useful pieces over time.</li>
+        <li><strong>Change cost:</strong> The effort or expense involved in changing a decision or product.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team designing a new medical device may need formal approvals and carefully controlled phases. A team creating a new café website can release a basic menu first, then adjust the site after seeing how customers use it.</p>
+      </div>
+    </div>
+    <h3 id="1-3-agile-manifesto">1.3 Agile Manifesto</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Agile Manifesto expresses four preferences: individuals and interactions over processes and tools; working software over comprehensive documentation; customer collaboration over contract negotiation; and responding to change over following a plan. The words on the right still have value, but the values on the left receive greater emphasis.</p>
+      <p>These values encourage teams to communicate directly, demonstrate real product progress, involve customers, and revise plans when new information matters. They are guiding preferences, not rules that require teams to abandon tools, documentation, agreements, or planning.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Agile Manifesto:</strong> A statement of values and principles for Agile software development.</li>
+        <li><strong>Working software:</strong> Software that functions and can be evaluated in practice.</li>
+        <li><strong>Customer collaboration:</strong> Ongoing partnership with people who understand or use the product.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>When a stakeholder requests a change, a team discusses the goal and trade-offs together, updates its plan, and records the important decision rather than insisting that the original plan cannot change.</p>
+      </div>
+    </div>
+    <h3 id="1-4-agile-principles">1.4 Agile Principles</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The twelve Agile principles expand on the Manifesto's values. They include satisfying customers through early and continuous delivery, welcoming useful changes, delivering working software frequently, and keeping business people and developers in regular contact. They also emphasize motivated people, effective communication, sustainable pace, technical excellence, simplicity, self-organizing teams, and regular reflection.</p>
+      <p>The principles are meant to guide decisions rather than serve as a checklist that guarantees success. A team can use them to ask whether its way of working is delivering value, supporting quality, and helping people learn. Different products may apply the principles differently because their users, risks, and constraints vary.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Sustainable pace:</strong> A way of working that can be maintained without relying on repeated overwork.</li>
+        <li><strong>Technical excellence:</strong> Careful engineering that makes a product reliable and easier to change.</li>
+        <li><strong>Self-organizing team:</strong> A team that determines how best to organize its work toward a shared goal.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>After discovering that users struggle with checkout, a team releases an improvement promptly, checks the results, and discusses in its next retrospective how to spot usability problems sooner.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>How does Agile use feedback to guide future work?</li>
+        <li>What is one important difference between sequential and iterative development?</li>
+        <li>Name one Agile Manifesto value and explain its general meaning.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="2-introduction-to-scrum">
+    <h2>2. Introduction to Scrum</h2>
+    <h3 id="2-1-what-is-scrum">2.1 What Is Scrum?</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Scrum is a lightweight framework for helping people and teams generate value through adaptive solutions to complex problems. Work is organized into fixed-length Sprints, during which a Scrum Team works toward a shared Sprint Goal and creates a usable Increment that meets its quality standard.</p>
+      <p>Scrum makes work and progress visible so the team can inspect results and adapt its next steps. It defines accountabilities, events, artifacts, and commitments, but it does not prescribe every task or engineering technique. Teams use appropriate practices to do the work while keeping Scrum's framework understandable.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Framework:</strong> A structure that guides work without prescribing every detail.</li>
+        <li><strong>Sprint:</strong> A fixed-length period in which the team works toward a valuable outcome.</li>
+        <li><strong>Increment:</strong> A usable step toward the product, integrated with what came before.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team building a transit app plans a two-week Sprint around helping riders find nearby bus stops, then demonstrates a working map feature and uses rider feedback to plan further improvements.</p>
+      </div>
+    </div>
+    <h3 id="2-2-scrum-framework">2.2 Scrum Framework</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Scrum framework connects three accountabilities—Product Owner, Scrum Master, and Developers—with a set of events and artifacts. The Product Owner is accountable for product value and the Product Backlog; the Scrum Master is accountable for establishing Scrum; and Developers create a usable Increment each Sprint.</p>
+      <p>The Sprint contains Sprint Planning, Daily Scrums, the Sprint Review, and the Sprint Retrospective. The Product Backlog, Sprint Backlog, and Increment are the framework's artifacts, with the Product Goal, Sprint Goal, and Definition of Done serving as their commitments. These parts support transparency, inspection, and adaptation.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Accountability:</strong> A responsibility for an outcome within Scrum.</li>
+        <li><strong>Event:</strong> A formal opportunity to inspect work and adapt.</li>
+        <li><strong>Artifact:</strong> A visible representation of work or value.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>At Sprint Planning, a team chooses work linked to a product goal. Developers coordinate daily, stakeholders review the result, and the team then agrees on a process improvement.</p>
+      </div>
+    </div>
+    <h3 id="2-3-scrum-vs-agile">2.3 Scrum vs. Agile</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Agile is a broad set of values and principles. Scrum is one framework that teams can use to put those values into practice. A Scrum Team uses short Sprints, frequent inspection, collaboration, and adaptation, which align with many Agile principles.</p>
+      <p>Scrum is not the only Agile approach. Kanban, Extreme Programming, and other methods use different structures and practices. A team may also combine Scrum with engineering techniques such as test-driven development. Calling a process Agile does not automatically make it Scrum; Scrum includes specific accountabilities, events, artifacts, and commitments.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Agile:</strong> A set of values and principles for adaptive product development.</li>
+        <li><strong>Scrum:</strong> A lightweight framework for addressing complex work.</li>
+        <li><strong>Kanban:</strong> An approach that visualizes workflow and manages work in progress.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A product team may use Scrum's Sprints and review events while adopting automated testing practices from Extreme Programming to improve product quality.</p>
+      </div>
+    </div>
+    <h3 id="2-4-scrum-terminology">2.4 Scrum Terminology</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Scrum uses terms with specific meanings. A Product is the means of delivering value and can be a service, application, or other outcome. The Product Backlog is an evolving, ordered list of what may improve the product, while the Sprint Backlog contains the Sprint Goal, selected Product Backlog items, and the Developers' plan for delivering them.</p>
+      <p>An Increment is a usable, verified addition to the product. It must meet the Definition of Done and work with previous Increments. A Sprint is the container for Scrum events and the team's work toward the Sprint Goal. Understanding these terms helps teams discuss work consistently.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Product:</strong> A vehicle for delivering value to customers or users.</li>
+        <li><strong>Product Backlog:</strong> The ordered, evolving list of work for improving a product.</li>
+        <li><strong>Sprint Backlog:</strong> The Sprint Goal, selected work, and plan for the Sprint.</li>
+        <li><strong>Increment:</strong> A usable addition to the product that meets the Definition of Done.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>For a meal-planning app, the Product is the app and service, an item in the Product Backlog could be saving favorite recipes, and that item's completed functionality may become part of an Increment.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>What is Scrum designed to help a team do?</li>
+        <li>How does Scrum relate to Agile?</li>
+        <li>Which Scrum artifact contains the Developers' plan for the current Sprint?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="3-scrum-roles-and-responsibilities">
+    <h2>3. Scrum Roles and Responsibilities</h2>
+    <h3 id="3-1-product-owner">3.1 Product Owner</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Product Owner is accountable for maximizing the value of the product resulting from the Scrum Team's work. This includes developing and communicating the Product Goal, creating and clearly communicating Product Backlog items, ordering the backlog, and ensuring that it is transparent and understood.</p>
+      <p>The Product Owner may do this work personally or delegate tasks, but remains accountable for the outcome. They listen to users, stakeholders, and the team, then make product decisions and clarify priorities. The role is most effective when the Product Owner is accessible and can make timely choices.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Product value:</strong> The benefit the product provides compared with the effort and resources invested.</li>
+        <li><strong>Product Goal:</strong> The long-term objective for the product.</li>
+        <li><strong>Ordering:</strong> Arranging Product Backlog items to help guide what is considered next.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>For a public library app, the Product Owner reviews user feedback and orders improvements so that reliable account access is addressed before a lower-value visual enhancement.</p>
+      </div>
+    </div>
+    <h3 id="3-2-scrum-master">3.2 Scrum Master</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Scrum Master is accountable for establishing Scrum as described in the Scrum Guide and for the Scrum Team's effectiveness. They help people understand Scrum, support productive events, and encourage the team to improve how it works.</p>
+      <p>The Scrum Master serves the team, the Product Owner, and the wider organization. They may help remove impediments or enable people to resolve them, coach stakeholders in effective collaboration, and support organizational changes that make Scrum more effective. The Scrum Master does not assign tasks or act as the team's traditional project manager.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Impediment:</strong> An obstacle that makes progress or effective work harder.</li>
+        <li><strong>Facilitation:</strong> Helping a group have a productive conversation or event.</li>
+        <li><strong>Servant leadership:</strong> Supporting others' ability to succeed rather than relying on command and control.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>When a team is blocked by slow access to a test environment, the Scrum Master works with the relevant department to resolve the access process and helps the team identify ways to prevent the delay from recurring.</p>
+      </div>
+    </div>
+    <h3 id="3-3-developers">3.3 Developers</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Developers are the people in the Scrum Team who create any aspect of a usable Increment each Sprint. The term describes an accountability, not only software programmers; it can include all the skills needed to build, test, design, and deliver the product.</p>
+      <p>Developers create the Sprint plan, maintain quality by following the Definition of Done, adapt their plan each day toward the Sprint Goal, and hold one another accountable as professionals. They decide how to do the work and organize their skills to produce the Increment.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Developers:</strong> Scrum Team members accountable for creating a usable Increment.</li>
+        <li><strong>Sprint Goal:</strong> The single objective that gives the Sprint a purpose.</li>
+        <li><strong>Definition of Done:</strong> The shared description of the quality state required for an Increment.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>For a new appointment-booking feature, Developers coordinate user-interface design, programming, accessibility checks, and testing so the feature is usable rather than merely coded.</p>
+      </div>
+    </div>
+    <h3 id="3-4-the-scrum-team">3.4 The Scrum Team</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>A Scrum Team consists of one Product Owner, one Scrum Master, and Developers. It is a cohesive group focused on one Product Goal at a time. The team is cross-functional, with the skills needed to create value, and self-managing, meaning it decides internally who does what, when, and how.</p>
+      <p>The entire Scrum Team is accountable for creating a valuable, useful Increment each Sprint. Members collaborate closely and share responsibility for the result rather than treating work as separate handoffs between departments. Scrum Teams are typically small enough to remain connected while still able to complete meaningful work.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Cross-functional:</strong> Having or accessing the skills needed to complete the work.</li>
+        <li><strong>Self-managing:</strong> Organizing the team's work without an external manager assigning every task.</li>
+        <li><strong>Cohesive:</strong> Working together toward a shared purpose.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A small team with product, design, engineering, and testing skills collaborates on a customer-support portal, coordinating its work instead of passing unfinished tasks between separate departments.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>What outcome is the Product Owner accountable for maximizing?</li>
+        <li>How does a Scrum Master support team effectiveness?</li>
+        <li>What does it mean for Developers to self-manage their work?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="4-scrum-artifacts-and-commitments">
+    <h2>4. Scrum Artifacts and Commitments</h2>
+    <h3 id="4-1-product-backlog">4.1 Product Backlog</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Product Backlog is an emergent, ordered list of what is needed to improve the product. It is the single source of work undertaken by the Scrum Team. Items may include features, fixes, research, or technical improvements, and their detail can increase as they become more relevant and better understood.</p>
+      <p>Product Backlog refinement is the ongoing activity of breaking items down and adding details such as descriptions, order, and size. Refinement is not a formal Scrum event. The Product Owner is accountable for the backlog, while the Scrum Team collaborates to make it transparent and useful.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Product Backlog item:</strong> A piece of work or opportunity to improve the product.</li>
+        <li><strong>Ordering:</strong> Positioning items to communicate their relative importance or sequence.</li>
+        <li><strong>Refinement:</strong> Breaking down and clarifying backlog items as needed.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>For a grocery-delivery product, the Product Backlog may include improving address entry, adding order tracking, fixing a payment defect, and exploring support for a new payment provider.</p>
+      </div>
+    </div>
+    <h3 id="4-2-sprint-backlog">4.2 Sprint Backlog</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Sprint Backlog is a plan by and for the Developers. It combines the Sprint Goal, the Product Backlog items selected for the Sprint, and an actionable plan for delivering the Increment. It makes the Developers' current work visible.</p>
+      <p>The Developers update the Sprint Backlog as they learn more during the Sprint. Its plan can change, but changes should not put the Sprint Goal at risk; the scope can be clarified and renegotiated with the Product Owner as needed. The Sprint Backlog is not a fixed list imposed on the team from outside.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Sprint Goal:</strong> The objective that explains why the Sprint is valuable.</li>
+        <li><strong>Selected items:</strong> Product Backlog work chosen for the Sprint.</li>
+        <li><strong>Actionable plan:</strong> The Developers' current approach to creating the Increment.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>If the Sprint Goal is to let customers track deliveries, Developers might select mapping and status-update items, then adjust task details after discovering how the delivery service provides location data.</p>
+      </div>
+    </div>
+    <h3 id="4-3-product-increment">4.3 Product Increment</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>An Increment is a concrete stepping stone toward the Product Goal. It adds to all previous Increments, is thoroughly verified, and is usable. Multiple Increments may be created during a Sprint, and the work is not considered part of an Increment unless it meets the Definition of Done.</p>
+      <p>An Increment must provide value, but it does not have to be released immediately. The Product Owner decides when a release is appropriate, subject to any organizational or regulatory constraints. Keeping the Increment usable helps teams inspect real progress and avoid accumulating unfinished work.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Usable:</strong> Ready to provide its intended value when put into use.</li>
+        <li><strong>Integrated:</strong> Combined with previous product work rather than isolated from it.</li>
+        <li><strong>Release:</strong> Making a product change available to users or customers.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>After completing and testing a password-reset flow to the team's quality standard, the team integrates it with the existing account system; the Product Owner may choose to release it now or coordinate its release with another change.</p>
+      </div>
+    </div>
+    <h3 id="4-4-scrum-commitments">4.4 Scrum Commitments</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Each Scrum artifact has a commitment that makes its purpose clearer. The Product Backlog has the Product Goal, the Sprint Backlog has the Sprint Goal, and the Increment has the Definition of Done. These commitments help the team and stakeholders inspect whether work is moving toward a meaningful outcome and meeting an agreed quality standard.</p>
+      <p>The Product Goal describes a future state for the product and provides a target for planning. The Sprint Goal is the single objective for the Sprint, while allowing flexibility in the specific work. The Definition of Done is a formal description of the state of the Increment when it meets the required quality measures.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Product Goal:</strong> The long-term objective for the Scrum Team's product.</li>
+        <li><strong>Sprint Goal:</strong> The Sprint's single objective and reason for doing the work.</li>
+        <li><strong>Definition of Done:</strong> The quality criteria work must meet to be part of an Increment.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team's Product Goal might be to make booking appointments possible online. One Sprint Goal could be enabling customers to choose an available time, with a Definition of Done requiring tested, accessible, integrated functionality.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>How does the Product Backlog differ from the Sprint Backlog?</li>
+        <li>What quality condition must work meet to be included in an Increment?</li>
+        <li>Which commitment gives the Sprint Backlog its central purpose?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="5-scrum-events-and-meetings">
+    <h2>5. Scrum Events and Meetings</h2>
+    <h3 id="5-1-the-sprint">5.1 The Sprint</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Sprint is a fixed-length event of one month or less that contains all other Scrum events and the work needed to achieve the Product Goal. A new Sprint starts immediately after the previous one ends. Short, consistent Sprints create a regular rhythm for inspection, feedback, and planning.</p>
+      <p>During a Sprint, the team works toward the Sprint Goal, maintains quality, and adapts its plan as it learns. No changes should endanger the Sprint Goal, quality should not decrease, and the scope can be clarified and renegotiated with the Product Owner. A Sprint may be cancelled only by the Product Owner if its goal becomes obsolete.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Timebox:</strong> A fixed maximum duration for an event or activity.</li>
+        <li><strong>Sprint Goal:</strong> The objective guiding the work in a Sprint.</li>
+        <li><strong>Sprint cancellation:</strong> Ending a Sprint before its timebox finishes because its goal is obsolete.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team uses a two-week Sprint to improve online returns. A new finding may change which return-screen details are included, but the team and Product Owner preserve the Sprint Goal of helping customers start a return.</p>
+      </div>
+    </div>
+    <h3 id="5-2-sprint-planning">5.2 Sprint Planning</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Sprint Planning begins the Sprint by establishing a plan for the work ahead. The entire Scrum Team collaborates to discuss why the Sprint is valuable, what can be done, and how the chosen work will be completed. The resulting Sprint Goal, selected Product Backlog items, and initial delivery plan form the Sprint Backlog.</p>
+      <p>The Product Owner helps participants discuss the most important backlog items and their connection to the Product Goal. Developers select work they believe they can complete while considering capacity and past performance. Planning is a conversation, not a promise that every uncertain task will unfold exactly as predicted.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Capacity:</strong> The team's available ability to do work during a Sprint.</li>
+        <li><strong>Sprint Backlog:</strong> The goal, selected work, and plan produced through planning.</li>
+        <li><strong>Sprint Planning:</strong> The event that starts a Sprint and establishes its plan.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>Before a Sprint, a team reviews its available working days and planned leave, agrees that reducing failed payments is the valuable goal, and selects related work it can reasonably pursue.</p>
+      </div>
+    </div>
+    <h3 id="5-3-daily-scrum">5.3 Daily Scrum</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Daily Scrum is a 15-minute event for the Developers to inspect progress toward the Sprint Goal and adapt the Sprint Backlog as necessary. It takes place each working day of the Sprint, helping Developers coordinate and identify decisions or obstacles that need attention.</p>
+      <p>The Daily Scrum is not a status report to a manager, and Scrum does not require a particular speaking format. Developers can use any structure that helps them plan their next workday. Follow-up discussions can happen after the timebox with only the relevant people.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Daily Scrum:</strong> A short event for Developers to inspect progress and adapt their plan.</li>
+        <li><strong>Sprint Goal:</strong> The shared objective that focuses daily coordination.</li>
+        <li><strong>Impediment:</strong> Something that is obstructing progress or effective work.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>Developers notice that two tasks depend on the same API change. They agree during the Daily Scrum who will coordinate the work and update their plan to avoid waiting.</p>
+      </div>
+    </div>
+    <h3 id="5-4-sprint-review">5.4 Sprint Review</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Sprint Review is an opportunity for the Scrum Team and stakeholders to inspect the Sprint's outcome and determine future adaptations. Participants discuss progress toward the Product Goal, what changed in the environment, and what to do next. They collaborate on the Product Backlog based on what they learned.</p>
+      <p>The Review is a working session, not merely a presentation or approval gate. A demonstration of the Increment can support discussion, but the important result is shared understanding and useful decisions about future direction. The event takes place near the end of the Sprint.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Stakeholder:</strong> A person or group affected by or interested in the product.</li>
+        <li><strong>Sprint Review:</strong> An event to inspect outcomes and adapt future product work.</li>
+        <li><strong>Product Backlog:</strong> The evolving list that may be updated based on review findings.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>At a Sprint Review for a school portal, teachers try the new assignment filter and explain that they also need to filter by class. The Product Owner uses this feedback when ordering future backlog work.</p>
+      </div>
+    </div>
+    <h3 id="5-5-sprint-retrospective">5.5 Sprint Retrospective</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>The Sprint Retrospective is an opportunity for the Scrum Team to inspect how the last Sprint went regarding people, interactions, processes, tools, and the Definition of Done. The team identifies assumptions that led it astray and explores what went well, what problems occurred, and how those problems were or were not solved.</p>
+      <p>The team chooses useful improvements to increase quality and effectiveness. The most impactful changes can be addressed as soon as possible and may be added to the next Sprint Backlog. The event focuses on learning and improvement rather than assigning blame.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Retrospective:</strong> A team reflection used to identify improvements.</li>
+        <li><strong>Effectiveness:</strong> How well the team is able to achieve valuable outcomes.</li>
+        <li><strong>Experiment:</strong> A small change tried to learn whether a practice improves results.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>After repeated testing delays, a team agrees to prepare test data earlier in the next Sprint and checks at the following Retrospective whether that reduced waiting.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>What makes a Sprint a fixed-length event?</li>
+        <li>Who uses the Daily Scrum to inspect and adapt the Sprint plan?</li>
+        <li>How does a Sprint Review differ from a Sprint Retrospective?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="6-applying-agile-and-scrum-in-practice">
+    <h2>6. Applying Agile and Scrum in Practice</h2>
+    <h3 id="6-1-creating-user-stories">6.1 Creating User Stories</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>A user story is a lightweight way to describe a need from the perspective of someone who uses or benefits from a product. A common template is “As a [type of user], I want [capability], so that [benefit].” The statement helps a team discuss the user's goal without pretending that all details are already known.</p>
+      <p>User stories are a common Agile practice, not a required Scrum artifact or format. A useful story invites conversation and can be paired with acceptance criteria that clarify important examples or conditions. Teams should focus on the underlying user need rather than splitting work into technical tasks that provide no clear value on their own.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>User story:</strong> A brief description of a user need and its benefit.</li>
+        <li><strong>User perspective:</strong> The viewpoint of the person who will use or benefit from a feature.</li>
+        <li><strong>Acceptance criteria:</strong> Conditions used to clarify and verify expected behavior.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>“As a commuter, I want to save a favorite bus stop, so that I can check its next departures quickly” describes a rider's need for a transit app.</p>
+      </div>
+    </div>
+    <h3 id="6-2-estimation-and-story-points">6.2 Estimation and Story Points</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Estimation helps a team discuss the relative size, complexity, effort, and uncertainty of work. Story points are one optional, relative measure; they are not hours and do not represent a universal amount of work. Teams may compare a new item with familiar examples and use a scale such as 1, 2, 3, 5, and 8.</p>
+      <p>Estimates are uncertain and should not be used to compare teams or judge individual performance. A team can use techniques such as Planning Poker to surface different assumptions. Scrum does not require story points or any particular estimation method; Developers choose an approach that helps them plan.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Relative estimation:</strong> Comparing the size of work with other work rather than predicting exact time.</li>
+        <li><strong>Story point:</strong> A team's optional unit for representing relative work size.</li>
+        <li><strong>Planning Poker:</strong> A group estimation technique in which participants discuss and reveal estimates.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>When estimating a password-reset feature, Developers compare it with a previously completed email-notification change and identify that account security and testing add uncertainty.</p>
+      </div>
+    </div>
+    <h3 id="6-3-sprint-execution">6.3 Sprint Execution</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>During a Sprint, Developers carry out and adapt the plan in the Sprint Backlog while keeping the Sprint Goal in view. They collaborate on work, check progress regularly, and integrate completed work so that it meets the Definition of Done. The Sprint Backlog evolves as more is learned.</p>
+      <p>If new information affects the work, Developers and the Product Owner can clarify or renegotiate scope without endangering the Sprint Goal. A task board or other visualization can help the team see the workflow, but moving a card is not the same as finishing valuable, quality-checked work.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Sprint execution:</strong> The work of pursuing the Sprint Goal and creating an Increment.</li>
+        <li><strong>Work in progress:</strong> Work that has started but is not yet complete.</li>
+        <li><strong>Integration:</strong> Combining changes into the product so they work together.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>While building an order-tracking feature, Developers integrate and test the status view as it is completed, rather than leaving all testing and integration until the final day.</p>
+      </div>
+    </div>
+    <h3 id="6-4-scrum-boards-and-burndown-charts">6.4 Scrum Boards and Burndown Charts</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>A Scrum board is a visual tool some teams use to show work and its state, such as “To Do,” “In Progress,” and “Done.” It can make work, dependencies, and bottlenecks easier to discuss. The board is a supporting practice, not a required Scrum artifact, and teams should adapt it to their workflow.</p>
+      <p>A burndown chart plots remaining work over time, often during a Sprint. It can help a team notice when work is not progressing as expected, but it does not explain why. Such charts should support conversation and adaptation, not be treated as a performance score or a guarantee that scope will finish on a particular date.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Scrum board:</strong> A visual representation of the team's work and workflow.</li>
+        <li><strong>Burndown chart:</strong> A chart showing remaining work over a period of time.</li>
+        <li><strong>Bottleneck:</strong> A point in a workflow where work accumulates or slows down.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team sees several review tasks stalled in the “In Progress” column. It discusses the bottleneck and arranges a short pairing session to help complete the reviews.</p>
+      </div>
+    </div>
+    <h3 id="6-5-definition-of-ready-and-acceptance-criteria">6.5 Definition of Ready and Acceptance Criteria</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Acceptance criteria describe specific conditions or examples that help clarify how a backlog item should behave. They support shared understanding and can guide testing, but they do not replace conversation or the Definition of Done. Criteria are most useful when they are clear, testable, and connected to a real need.</p>
+      <p>A Definition of Ready is a checklist some teams use to assess whether an item is sufficiently understood for discussion or selection. It is not an official Scrum artifact or commitment. Teams should avoid turning it into a rigid gate that prevents learning; they can clarify uncertain work through refinement or select an exploratory task when appropriate.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Acceptance criteria:</strong> Item-specific conditions describing expected behavior or results.</li>
+        <li><strong>Definition of Ready:</strong> An optional team checklist for assessing backlog-item clarity.</li>
+        <li><strong>Definition of Done:</strong> The shared quality standard required for an Increment.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>For a story that lets customers download an invoice, acceptance criteria might specify that the file includes the order total and date; the team's Definition of Done additionally requires accessibility and security checks.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>What user benefit should a well-formed user story communicate?</li>
+        <li>Why should story points not be treated as hours or individual performance scores?</li>
+        <li>How do acceptance criteria differ from the Definition of Done?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="7-agile-and-scrum-tools-and-metrics">
+    <h2>7. Agile and Scrum Tools and Metrics</h2>
+    <h3 id="7-1-project-management-tools">7.1 Project Management Tools</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Project management tools help teams organize work, make progress visible, and coordinate conversations. Jira, Trello, and GitHub Projects are examples that can represent backlogs, tasks, workflows, and milestones. The best tool is one that supports the team's actual way of working without adding unnecessary overhead.</p>
+      <p>Tools do not make a team Agile or guarantee good collaboration. Teams still need clear goals, direct communication, useful feedback, and appropriate product decisions. It is important to keep the tool's information current enough to help people coordinate while avoiding duplicate administrative work.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Workflow:</strong> The steps work follows from starting to completion.</li>
+        <li><strong>Backlog tool:</strong> Software used to record and organize possible or active work.</li>
+        <li><strong>Information radiator:</strong> A visible display that helps people understand work or progress.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team uses GitHub Projects to link a customer-facing feature card to its code changes and tests, giving developers and product partners a shared view of progress.</p>
+      </div>
+    </div>
+    <h3 id="7-2-velocity">7.2 Velocity</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Velocity is a planning measure some teams calculate from the amount of estimated work completed in a Sprint. If a team uses story points, it may look at several Sprints of completed points to understand its own recent pattern and inform future forecasts.</p>
+      <p>Velocity is not a Scrum requirement, a productivity measure, or a target that should be increased for its own sake. It depends on a team's estimation approach and Definition of Done, so comparisons between teams are misleading. Teams should use historical data cautiously and adjust plans when capacity or conditions change.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Velocity:</strong> A team's historical measure of completed estimated work per Sprint.</li>
+        <li><strong>Forecast:</strong> An informed estimate of possible future delivery, not a guarantee.</li>
+        <li><strong>Capacity:</strong> The team's available ability to do work in a given period.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>Before planning a holiday-period Sprint with several people away, a team reviews its own recent delivery history and reduces its forecast rather than expecting a typical Sprint's output.</p>
+      </div>
+    </div>
+    <h3 id="7-3-burndown-and-burnup-charts">7.3 Burndown and Burnup Charts</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>A burndown chart shows how much work remains over time. A burnup chart shows completed work over time and may also display the total scope. Both can help teams and stakeholders notice trends, discuss progress, and investigate changes.</p>
+      <p>Charts are simplified views of a changing situation. A burndown can look behind when estimates or scope change, while a burnup can show scope growth more explicitly. Neither chart explains the cause of a trend or replaces conversation about value, quality, and risks.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Burndown chart:</strong> A visual trend of remaining work over time.</li>
+        <li><strong>Burnup chart:</strong> A visual trend of completed work, often alongside total scope.</li>
+        <li><strong>Scope change:</strong> An adjustment to the amount or content of work being considered.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A product team uses a burnup chart to show that it completed checkout improvements while the total scope grew after a newly discovered payment requirement.</p>
+      </div>
+    </div>
+    <h3 id="7-4-agile-quality-practices">7.4 Agile Quality Practices</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Agile teams need technical practices that help them deliver working, reliable product changes frequently. Code reviews let peers examine changes; automated tests check expected behavior; and continuous integration frequently combines changes and runs checks to detect problems early.</p>
+      <p>Continuous delivery is the ability to keep software in a state where it can be released reliably, while continuous deployment automatically releases changes that meet the required checks. These practices are complementary but distinct. Their purpose is to reduce avoidable risk and support a usable Increment, not to replace thoughtful engineering or user feedback.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Code review:</strong> Examination of a code change by one or more peers.</li>
+        <li><strong>Continuous integration (CI):</strong> Frequent integration of changes with automated verification.</li>
+        <li><strong>Continuous delivery:</strong> Keeping software ready for a reliable release.</li>
+        <li><strong>Continuous deployment:</strong> Automatically releasing changes that pass the delivery pipeline.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>When a developer updates a shopping cart, automated tests run on the change and a peer reviews it before it is integrated into the product.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>What kinds of work can a project management tool help a team make visible?</li>
+        <li>Why is velocity most useful when interpreted as a team's own historical information?</li>
+        <li>What is the difference between continuous delivery and continuous deployment?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="8-advanced-scrum-practices-and-challenges">
+    <h2>8. Advanced Scrum Practices and Challenges</h2>
+    <h3 id="8-1-managing-changing-requirements">8.1 Managing Changing Requirements</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Agile teams expect that understanding of a product may change as users try it, markets shift, or new risks emerge. They use feedback and evidence to revisit priorities and adapt the Product Backlog rather than assuming every early requirement is permanently correct.</p>
+      <p>Change still needs thoughtful management. The Product Owner considers value and trade-offs, while the Scrum Team clarifies the work and its effect on goals. During a Sprint, scope can be clarified and renegotiated with the Product Owner as more is learned, but changes should not endanger the Sprint Goal or lower the quality of the Increment.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Requirement:</strong> A capability, outcome, or constraint that a product or service needs to address.</li>
+        <li><strong>Trade-off:</strong> A choice that balances competing needs, costs, or risks.</li>
+        <li><strong>Feedback loop:</strong> A repeated cycle of trying work, learning from results, and adapting.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>User testing shows that shoppers abandon a complicated delivery form. The Product Owner orders simpler address entry ahead of a planned visual enhancement, and the team explores the change in upcoming work.</p>
+      </div>
+    </div>
+    <h3 id="8-2-handling-common-scrum-challenges">8.2 Handling Common Scrum Challenges</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Teams may struggle with unclear goals, overloaded Sprints, work that is frequently interrupted, meetings that feel unhelpful, or low trust between collaborators. These symptoms can have different causes, so the team should make the problem visible and investigate it rather than applying a one-size-fits-all fix.</p>
+      <p>The Scrum Team can use its events to improve: clarify the Product Goal and Sprint Goal, discuss realistic capacity, make impediments visible, and select a specific improvement in the Retrospective. Stakeholders can also help by providing timely decisions and respecting the team's focus while remaining available for collaboration.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Unclear goal:</strong> An objective that does not give people a shared understanding of the intended outcome.</li>
+        <li><strong>Overcommitment:</strong> Taking on more work than the team can reasonably complete.</li>
+        <li><strong>Impediment removal:</strong> Reducing an obstacle that interferes with effective progress.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>After several Sprints end with unfinished work, the team examines interruptions and dependencies in its Retrospective, then tries limiting concurrent work and making urgent requests visible.</p>
+      </div>
+    </div>
+    <h3 id="8-3-scaling-scrum">8.3 Scaling Scrum</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>When several teams work on one product, coordination is needed to align their efforts, manage dependencies, and maintain an integrated product. Teams need a shared Product Goal and Product Backlog, clear communication, and a compatible Definition of Done so the result can work together.</p>
+      <p>Frameworks such as Nexus or Scrum@Scale offer ways to coordinate multiple teams, but adding a scaling framework does not remove the need to inspect and adapt. Organizations should choose the lightest approach that addresses their actual coordination challenges. More teams can add communication paths and dependencies, so simplifying the product or reducing unnecessary handoffs may help.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Scaling:</strong> Coordinating multiple teams working toward outcomes for one product or related products.</li>
+        <li><strong>Dependency:</strong> Work or a decision that relies on another piece of work or team.</li>
+        <li><strong>Integrated Increment:</strong> A product result that combines the teams' work and meets the shared quality standard.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>Two teams building a travel service agree on a shared Definition of Done and coordinate changes to the booking API so their features can be integrated into one working product.</p>
+      </div>
+    </div>
+    <h3 id="8-4-continuous-improvement">8.4 Continuous Improvement</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>Continuous improvement means regularly looking for ways to increase product value, quality, and team effectiveness. Scrum's inspection and adaptation cycle gives teams recurring opportunities to use feedback, examine their work, and adjust their approach.</p>
+      <p>Improvement works best when it is specific and observable. A team can choose a small experiment, agree on what it hopes to learn, and revisit the result rather than trying many changes without checking their effects. Improvements can concern product behavior, collaboration, engineering practices, or the way work flows.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>Continuous improvement:</strong> Ongoing efforts to improve outcomes and ways of working.</li>
+        <li><strong>Experiment:</strong> A deliberate trial used to test whether a change helps.</li>
+        <li><strong>Outcome:</strong> A meaningful result or effect, rather than simply completed activity.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>A team wants to reduce defects found after release, so it adds a brief exploratory testing session before each Increment is considered done and reviews the results after two Sprints.</p>
+      </div>
+    </div>
+    <h3 id="8-5-agile-and-devops">8.5 Agile and DevOps</h3>
+    <div class="section-block">
+      <div class="block-label">Explanation</div>
+      <p>DevOps is a set of cultural and technical practices that brings development and operations work closer together. It emphasizes shared responsibility, automation, reliable systems, and learning from how software behaves in production. Agile and DevOps can complement each other by connecting iterative product planning with dependable ways to build, release, and operate software.</p>
+      <p>Agile practices help teams decide what valuable change to pursue and learn from feedback; DevOps practices such as automated deployment, monitoring, and infrastructure automation can help deliver and support that change. Neither approach is only a toolset, and adopting automation without collaboration or operational learning does not by itself create effective DevOps.</p>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Key Terms</div>
+      <ul>
+        <li><strong>DevOps:</strong> Practices that improve collaboration and delivery between development and operations.</li>
+        <li><strong>Monitoring:</strong> Observing a running service to understand its health and behavior.</li>
+        <li><strong>Automation:</strong> Using software to perform repeatable tasks consistently.</li>
+      </ul>
+    </div>
+    <div class="section-block">
+      <div class="block-label">Example</div>
+      <div class="example-box">
+        <p>After releasing a search improvement, a team monitors search speed and error rates, then uses that production information to decide whether a follow-up change is needed.</p>
+      </div>
+    </div>
+    <div class="quick-check-box">
+      <h4>&#10003; Quick Check</h4>
+      <ul>
+        <li>How can a team respond to new requirements without losing focus during a Sprint?</li>
+        <li>What shared practices help multiple Scrum Teams integrate their work?</li>
+        <li>How do Agile and DevOps practices support different parts of product delivery?</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="summary">
+    <h2>Summary</h2>
+    <div class="summary-box">
+      <ul>
+        <li><strong>Agile Core Values and Mindset:</strong> Agile emphasizes individuals and interactions, working software, customer collaboration, and responsiveness to change over rigid processes and heavy documentation, delivering customer value in short, iterative cycles.</li>
+        <li><strong>The Scrum Framework:</strong> Scrum is a lightweight, empirical framework designed to solve complex problems through iterative work cycles called Sprints (lasting one month or less), culminating in a usable, quality-checked Increment.</li>
+        <li><strong>Scrum Accountabilities:</strong> A cohesive, self-managing Scrum Team comprises three distinct accountabilities: the Product Owner (maximizes product value and manages the Product Backlog), the Scrum Master (champions Scrum effectiveness and removes impediments), and Developers (build the usable Increment).</li>
+        <li><strong>Artifacts and Commitments:</strong> The three Scrum artifacts ensure transparency and focus through explicit commitments: the Product Backlog commits to the Product Goal, the Sprint Backlog commits to the Sprint Goal, and the Increment commits to the Definition of Done.</li>
+        <li><strong>Timeboxed Empirical Events:</strong> Sprints provide a regular cadence consisting of Sprint Planning, Daily Scrums, Sprint Reviews, and Sprint Retrospectives, enabling frequent inspection and adaptation without unnecessary meeting churn.</li>
+        <li><strong>Practical Application and Estimation:</strong> Effective teams employ user stories, clear acceptance criteria, and relative estimation techniques (such as story points) to foster shared understanding, maintain a sustainable pace, and avoid treating estimates as fixed deadlines.</li>
+        <li><strong>Technical Excellence and DevOps Alignment:</strong> Sustainable agility depends on solid engineering practices—including code reviews, automated testing, continuous integration, and continuous delivery—to maintain reliable, deployable codebases.</li>
+        <li><strong>Continuous Improvement and Scaling:</strong> Agile maturity thrives on inspecting workflows, executing small improvements, and, when multiple teams collaborate, scaling through unified product backlogs, clear cross-team dependencies, and aligned quality standards.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content-section" id="answer-key">
+    <h2>Answer Key</h2>
+    <div class="answer-key-card">
+      <h3>Section 1: Introduction to Agile</h3>
+      <div class="qa-item">
+        <div class="qa-question">How does Agile use feedback to guide future work?</div>
+        <div class="qa-answer">Agile teams deliver work in short, incremental cycles, gather feedback from users and stakeholders on functional increments, and use those insights to adjust upcoming priorities and refine plans.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">What is one important difference between sequential and iterative development?</div>
+        <div class="qa-answer">Sequential (Waterfall) development moves through fixed, approved phases in linear order, whereas iterative development delivers small functional batches repeatedly, learning from each release and adapting continuously.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Name one Agile Manifesto value and explain its general meaning.</div>
+        <div class="qa-answer"><em>Responding to change over following a plan:</em> While planning provides essential direction, teams prioritize adapting to new learnings, stakeholder feedback, and shifting realities over rigidly following an outdated plan.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 2: Introduction to Scrum</h3>
+      <div class="qa-item">
+        <div class="qa-question">What is Scrum designed to help a team do?</div>
+        <div class="qa-answer">Scrum is designed to help people, teams, and organizations generate value through adaptive solutions to complex problems.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">How does Scrum relate to Agile?</div>
+        <div class="qa-answer">Agile is a broad philosophy of values and principles, whereas Scrum is a specific, lightweight framework that puts Agile principles into practice through defined accountabilities, events, and artifacts.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Which Scrum artifact contains the Developers' plan for the current Sprint?</div>
+        <div class="qa-answer">The Sprint Backlog (which includes the Sprint Goal, selected Product Backlog items, and the actionable plan for delivering the Increment).</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 3: Scrum Roles and Responsibilities</h3>
+      <div class="qa-item">
+        <div class="qa-question">What outcome is the Product Owner accountable for maximizing?</div>
+        <div class="qa-answer">The Product Owner is accountable for maximizing the value of the product resulting from the work of the Scrum Team.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">How does a Scrum Master support team effectiveness?</div>
+        <div class="qa-answer">The Scrum Master supports effectiveness by establishing Scrum as described in the Scrum Guide, facilitating events, coaching the team and organization, and helping remove impediments.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">What does it mean for Developers to self-manage their work?</div>
+        <div class="qa-answer">Self-managing means Developers internally decide who does what, when, and how to create a usable Increment, without an outside manager directing or assigning their daily tasks.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 4: Scrum Artifacts and Commitments</h3>
+      <div class="qa-item">
+        <div class="qa-question">How does the Product Backlog differ from the Sprint Backlog?</div>
+        <div class="qa-answer">The Product Backlog is an evolving, ordered inventory of everything that could improve the product long-term (managed by the Product Owner). The Sprint Backlog is the Developers' tactical plan and selected items dedicated specifically to the current Sprint.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">What quality condition must work meet to be included in an Increment?</div>
+        <div class="qa-answer">Work must satisfy the team's agreed Definition of Done.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Which commitment gives the Sprint Backlog its central purpose?</div>
+        <div class="qa-answer">The Sprint Goal.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 5: Scrum Events and Meetings</h3>
+      <div class="qa-item">
+        <div class="qa-question">What makes a Sprint a fixed-length event?</div>
+        <div class="qa-answer">A Sprint has a predetermined, non-extendable timebox of one month or less; it ends on a fixed date regardless of work completed, and a new Sprint begins immediately after.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Who uses the Daily Scrum to inspect and adapt the Sprint plan?</div>
+        <div class="qa-answer">The Developers.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">How does a Sprint Review differ from a Sprint Retrospective?</div>
+        <div class="qa-answer">The Sprint Review inspects the product Increment with stakeholders to adapt the Product Backlog, while the Sprint Retrospective inspects internal team dynamics, processes, and tools to identify team-level improvements.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 6: Applying Agile and Scrum in Practice</h3>
+      <div class="qa-item">
+        <div class="qa-question">What user benefit should a well-formed user story communicate?</div>
+        <div class="qa-answer">It communicates the underlying need and the specific benefit or value the user aims to achieve (the 'so that [benefit]' clause), rather than just technical implementation tasks.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Why should story points not be treated as hours or individual performance scores?</div>
+        <div class="qa-answer">Story points are relative, uncertain estimates of effort and complexity used for team forecasting; they do not correlate to clock hours and cannot be used to compare individual performance or different teams.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">How do acceptance criteria differ from the Definition of Done?</div>
+        <div class="qa-answer">Acceptance criteria define specific, testable requirements for an individual backlog item, whereas the Definition of Done applies globally across all items to ensure the quality and completeness of an Increment.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 7: Agile and Scrum Tools and Metrics</h3>
+      <div class="qa-item">
+        <div class="qa-question">What kinds of work can a project management tool help a team make visible?</div>
+        <div class="qa-answer">Backlogs, active tasks, workflow stages, dependencies, bottlenecks, milestones, and work-in-progress status.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">Why is velocity most useful when interpreted as a team's own historical information?</div>
+        <div class="qa-answer">Velocity reflects an individual team's specific sizing scale, capacity, and Definition of Done, making it useful solely for internal forecasting rather than external productivity comparisons.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">What is the difference between continuous delivery and continuous deployment?</div>
+        <div class="qa-answer">Continuous delivery ensures that code changes are automatically tested and kept in a release-ready state for manual deployment decisions; continuous deployment automatically releases every verified change directly to production.</div>
+      </div>
+    </div>
+    <div class="answer-key-card">
+      <h3>Section 8: Advanced Scrum Practices and Challenges</h3>
+      <div class="qa-item">
+        <div class="qa-question">How can a team respond to new requirements without losing focus during a Sprint?</div>
+        <div class="qa-answer">By evaluating them against the Sprint Goal: if they align with the goal, scope can be renegotiated with the Product Owner; if they are unrelated, they are added to the Product Backlog for future prioritization without disrupting the current Sprint.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">What shared practices help multiple Scrum Teams integrate their work?</div>
+        <div class="qa-answer">Sharing a single Product Goal and Product Backlog, maintaining a compatible Definition of Done, and coordinating dependencies to deliver a single integrated Increment.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question">How do Agile and DevOps practices support different parts of product delivery?</div>
+        <div class="qa-answer">Agile practices guide iterative product definition and feedback-driven prioritization, while DevOps practices automate build, testing, deployment, and monitoring to ensure reliable, continuous operations in production.</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

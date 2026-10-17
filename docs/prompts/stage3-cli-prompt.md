@@ -1,11 +1,11 @@
 # Stage 3 Prompt: CLI (Study Notes → PDF)
 
-**UX type:** CLI · **Used with:** Claude Code (works in Gemini CLI, GitHub Copilot CLI or any CLI AI)
+**UX type:** CLI · **Used with:** Gemini CLI (works in Claude Code, GitHub Copilot CLI or any CLI AI)
 **Input:** `docs/outputs/study-guide.md` · **Output:** `docs/outputs/Study-Guide.pdf`
 
 ## How to Use
 1. Open a terminal in the project folder.
-2. Start the CLI AI (for example `claude`).
+2. Start the CLI AI (for example `gemini`).
 3. Paste the prompt below.
 4. Approve the file edits and commands it asks to run.
 5. Open the PDF and check it.
@@ -30,6 +30,9 @@ STEPS
 5. Convert it to docs/outputs/Study-Guide.pdf using any tool available on this
    machine (e.g. pandoc, or render to HTML and print to PDF). Use readable
    fonts, page margins, and a page break before each ## section.
+   Tip: if pandoc is not installed, write a styled docs/outputs/study-guide.html
+   and print it with a headless browser, e.g. on Windows:
+   & "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="<full path>\docs\outputs\Study-Guide.pdf" "<full path>\docs\outputs\study-guide.html"
 6. Confirm the PDF exists and report its page count.
 
 RULES

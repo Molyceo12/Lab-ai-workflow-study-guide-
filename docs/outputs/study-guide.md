@@ -1,5 +1,25 @@
 # Study Guide: Agile and Scrum
 
+**A Comprehensive Practical Guide to Agile Principles, Scrum Frameworks, and Team Collaboration**  
+*Date: October 17, 2026*
+
+---
+
+## Table of Contents
+
+- [1. Introduction to Agile](#1-introduction-to-agile)
+- [2. Introduction to Scrum](#2-introduction-to-scrum)
+- [3. Scrum Roles and Responsibilities](#3-scrum-roles-and-responsibilities)
+- [4. Scrum Artifacts and Commitments](#4-scrum-artifacts-and-commitments)
+- [5. Scrum Events and Meetings](#5-scrum-events-and-meetings)
+- [6. Applying Agile and Scrum in Practice](#6-applying-agile-and-scrum-in-practice)
+- [7. Agile and Scrum Tools and Metrics](#7-agile-and-scrum-tools-and-metrics)
+- [8. Advanced Scrum Practices and Challenges](#8-advanced-scrum-practices-and-challenges)
+- [Summary](#summary)
+- [Answer Key](#answer-key)
+
+---
+
 ## 1. Introduction to Agile
 
 ### 1.1 What Is Agile?
@@ -617,3 +637,80 @@ After releasing a search improvement, a team monitors search speed and error rat
 - How can a team respond to new requirements without losing focus during a Sprint?
 - What shared practices help multiple Scrum Teams integrate their work?
 - How do Agile and DevOps practices support different parts of product delivery?
+
+## Summary
+
+- **Agile Core Values and Mindset:** Agile emphasizes individuals and interactions, working software, customer collaboration, and responsiveness to change over rigid processes and heavy documentation, delivering customer value in short, iterative cycles.
+- **The Scrum Framework:** Scrum is a lightweight, empirical framework designed to solve complex problems through iterative work cycles called Sprints (lasting one month or less), culminating in a usable, quality-checked Increment.
+- **Scrum Accountabilities:** A cohesive, self-managing Scrum Team comprises three distinct accountabilities: the Product Owner (maximizes product value and manages the Product Backlog), the Scrum Master (champions Scrum effectiveness and removes impediments), and Developers (build the usable Increment).
+- **Artifacts and Commitments:** The three Scrum artifacts ensure transparency and focus through explicit commitments: the Product Backlog commits to the Product Goal, the Sprint Backlog commits to the Sprint Goal, and the Increment commits to the Definition of Done.
+- **Timeboxed Empirical Events:** Sprints provide a regular cadence consisting of Sprint Planning, Daily Scrums, Sprint Reviews, and Sprint Retrospectives, enabling frequent inspection and adaptation without unnecessary meeting churn.
+- **Practical Application and Estimation:** Effective teams employ user stories, clear acceptance criteria, and relative estimation techniques (such as story points) to foster shared understanding, maintain a sustainable pace, and avoid treating estimates as fixed deadlines.
+- **Technical Excellence and DevOps Alignment:** Sustainable agility depends on solid engineering practices—including code reviews, automated testing, continuous integration, and continuous delivery—to maintain reliable, deployable codebases.
+- **Continuous Improvement and Scaling:** Agile maturity thrives on inspecting workflows, executing small improvements, and, when multiple teams collaborate, scaling through unified product backlogs, clear cross-team dependencies, and aligned quality standards.
+
+## Answer Key
+
+### Section 1: Introduction to Agile
+- **How does Agile use feedback to guide future work?**  
+  Agile teams deliver work in short, incremental cycles, gather feedback from users and stakeholders on functional increments, and use those insights to adjust upcoming priorities and refine plans.
+- **What is one important difference between sequential and iterative development?**  
+  Sequential (Waterfall) development moves through fixed, approved phases in linear order, whereas iterative development delivers small functional batches repeatedly, learning from each release and adapting continuously.
+- **Name one Agile Manifesto value and explain its general meaning.**  
+  *Responding to change over following a plan:* While planning provides essential direction, teams prioritize adapting to new learnings, stakeholder feedback, and shifting realities over rigidly following an outdated plan.
+
+### Section 2: Introduction to Scrum
+- **What is Scrum designed to help a team do?**  
+  Scrum is designed to help people, teams, and organizations generate value through adaptive solutions to complex problems.
+- **How does Scrum relate to Agile?**  
+  Agile is a broad philosophy of values and principles, whereas Scrum is a specific, lightweight framework that puts Agile principles into practice through defined accountabilities, events, and artifacts.
+- **Which Scrum artifact contains the Developers' plan for the current Sprint?**  
+  The Sprint Backlog (which includes the Sprint Goal, selected Product Backlog items, and the actionable plan for delivering the Increment).
+
+### Section 3: Scrum Roles and Responsibilities
+- **What outcome is the Product Owner accountable for maximizing?**  
+  The Product Owner is accountable for maximizing the value of the product resulting from the work of the Scrum Team.
+- **How does a Scrum Master support team effectiveness?**  
+  The Scrum Master supports effectiveness by establishing Scrum as described in the Scrum Guide, facilitating events, coaching the team and organization, and helping remove impediments.
+- **What does it mean for Developers to self-manage their work?**  
+  Self-managing means Developers internally decide who does what, when, and how to create a usable Increment, without an outside manager directing or assigning their daily tasks.
+
+### Section 4: Scrum Artifacts and Commitments
+- **How does the Product Backlog differ from the Sprint Backlog?**  
+  The Product Backlog is an evolving, ordered inventory of everything that could improve the product long-term (managed by the Product Owner). The Sprint Backlog is the Developers' tactical plan and selected items dedicated specifically to the current Sprint.
+- **What quality condition must work meet to be included in an Increment?**  
+  Work must satisfy the team's agreed Definition of Done.
+- **Which commitment gives the Sprint Backlog its central purpose?**  
+  The Sprint Goal.
+
+### Section 5: Scrum Events and Meetings
+- **What makes a Sprint a fixed-length event?**  
+  A Sprint has a predetermined, non-extendable timebox of one month or less; it ends on a fixed date regardless of work completed, and a new Sprint begins immediately after.
+- **Who uses the Daily Scrum to inspect and adapt the Sprint plan?**  
+  The Developers.
+- **How does a Sprint Review differ from a Sprint Retrospective?**  
+  The Sprint Review inspects the product Increment with stakeholders to adapt the Product Backlog, while the Sprint Retrospective inspects internal team dynamics, processes, and tools to identify team-level improvements.
+
+### Section 6: Applying Agile and Scrum in Practice
+- **What user benefit should a well-formed user story communicate?**  
+  It communicates the underlying need and the specific benefit or value the user aims to achieve (the 'so that [benefit]' clause), rather than just technical implementation tasks.
+- **Why should story points not be treated as hours or individual performance scores?**  
+  Story points are relative, uncertain estimates of effort and complexity used for team forecasting; they do not correlate to clock hours and cannot be used to compare individual performance or different teams.
+- **How do acceptance criteria differ from the Definition of Done?**  
+  Acceptance criteria define specific, testable requirements for an individual backlog item, whereas the Definition of Done applies globally across all items to ensure the quality and completeness of an Increment.
+
+### Section 7: Agile and Scrum Tools and Metrics
+- **What kinds of work can a project management tool help a team make visible?**  
+  Backlogs, active tasks, workflow stages, dependencies, bottlenecks, milestones, and work-in-progress status.
+- **Why is velocity most useful when interpreted as a team's own historical information?**  
+  Velocity reflects an individual team's specific sizing scale, capacity, and Definition of Done, making it useful solely for internal forecasting rather than external productivity comparisons.
+- **What is the difference between continuous delivery and continuous deployment?**  
+  Continuous delivery ensures that code changes are automatically tested and kept in a release-ready state for manual deployment decisions; continuous deployment automatically releases every verified change directly to production.
+
+### Section 8: Advanced Scrum Practices and Challenges
+- **How can a team respond to new requirements without losing focus during a Sprint?**  
+  By evaluating them against the Sprint Goal: if they align with the goal, scope can be renegotiated with the Product Owner; if they are unrelated, they are added to the Product Backlog for future prioritization without disrupting the current Sprint.
+- **What shared practices help multiple Scrum Teams integrate their work?**  
+  Sharing a single Product Goal and Product Backlog, maintaining a compatible Definition of Done, and coordinating dependencies to deliver a single integrated Increment.
+- **How do Agile and DevOps practices support different parts of product delivery?**  
+  Agile practices guide iterative product definition and feedback-driven prioritization, while DevOps practices automate build, testing, deployment, and monitoring to ensure reliable, continuous operations in production.
