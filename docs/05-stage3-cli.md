@@ -54,3 +54,4 @@ This is the final stage. `Study-Guide.pdf` is the finished deliverable of the wo
 |---|---|
 | ![Prompt](screenshots/stage3-01-cli-prompt.png) | The Stage 3 prompt pasted into Gemini CLI in the project folder |
 | ![Working](screenshots/stage3-02-cli-working.png) | Gemini CLI processing the request |
+| ![HTML generated](screenshots/stage3-03-cli-html-generated.png) | Gemini CLI wrote and ran its own conversion script: "Generated docs/outputs/study-guide.html successfully!" (79,028 bytes) |
