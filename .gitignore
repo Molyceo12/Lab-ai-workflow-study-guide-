@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python (in case export scripts are used)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (in case a Markdown-to-PDF tool is used)
+node_modules/
+
+# Environment / secrets
+.env
+
+# Temporary files
+*.tmp
+*.log
+~$*
+
+# Personal planning notes (local only, never pushed)
+notes/
